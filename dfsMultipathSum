@@ -1,0 +1,28 @@
+var pathSum = function(root, sum) {
+    let count=[]
+     return find(root,sum,count)
+    
+};
+
+const find = (node,sum,currPath)=>{
+   
+    if(node===null){
+        return 0
+    }
+    
+    currPath.push(node.val)
+    let count =0
+    let s = 0
+    for(let i=currPath.length-1;i>=0;i--){
+        s+= currPath[i]
+        if(s===sum){
+            count+=1
+        }
+    }
+    
+    count+= find(node.left,sum,currPath)
+    count+=find(node.right,sum,currPath)
+    
+    currPath.pop()
+    return count 
+}
