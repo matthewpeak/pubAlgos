@@ -1,0 +1,26 @@
+package main 
+
+func main(){
+	numbers:= []int{-1,2,1,-4}
+	bubbleSort(numbers)
+}
+
+func bubbleSort(nums[]int)[]int{
+	swappped:=true
+	for i:= len(nums)-1;i>0&&swappped==true;i--{
+		swappped=false
+		for j:=0;j<i; j++{
+         if(nums[j]>nums[j+1]){
+			 swap(j, j+1, nums)
+			 swappped=true
+		 }
+		}
+	}
+	return nums
+}
+
+func swap(i1 int,i2 int,arr []int){
+	temp:=arr[i1]
+	 arr[i1]=arr[i2]
+	 arr[i2]=temp
+}
