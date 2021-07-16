@@ -1,0 +1,25 @@
+
+ freqCounter=(arr,k)=>{
+  let sum = 0
+  let maxSum = 0
+  let r =[]
+  let temp = []
+  for(let i = 0; i<k;i++){
+    r.push(arr[i])
+    maxSum+=arr[i]
+  }
+  console.log(r)
+   sum = maxSum
+   temp = r 
+   for(let i = k ;i<arr.length;i++){
+     sum = sum - temp.shift()
+     sum = sum + arr[i]
+     temp.push(arr[i])
+     if(sum>maxSum){
+       maxSum=sum 
+       r= temp
+     }
+   }
+  return r 
+}
+freqCounter([100,200,300,400],2)
