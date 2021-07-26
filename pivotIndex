@@ -1,0 +1,12 @@
+var pivotIndex = function(nums) {
+    let sum = nums.reduce((a,b) => a+b)
+    let sumLeft= 0
+    for(let i=0;i<nums.length;i++){
+        sum -= nums[i]
+        if(sum===sumLeft){
+            return i
+        }
+        sumLeft+=nums[i]
+    }
+    return -1
+};
