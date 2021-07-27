@@ -1,0 +1,20 @@
+const smallest_subarray_with_given_sum = function(s, arr) {
+  // TODO: Write your code here
+   let windowStart=0
+   let windowSum = 0
+   let windowSize = 0
+   let minWindowSize = arr.length+1
+
+   for(let windowEnd=0;windowEnd<arr.length;windowEnd++){
+     windowSum+= arr[windowEnd]
+     windowSize++
+     while(windowSum>=s){
+       minWindowSize= Math.min(windowSize,minWindowSize)
+       windowSum -= arr[windowStart]
+       windowStart++
+       windowSize--
+     }
+   }
+   minWindowSize === arr.length+1 ? minWindowSize = -1 : null
+  return minWindowSize;
+};
