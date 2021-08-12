@@ -1,0 +1,38 @@
+var circularArrayLoop = function(nums) {
+    for(let i=0;i<nums.length;i++){
+    const isForward = nums[i]>=0
+    let p1 = i
+    let p2 = i
+   
+    while(true){
+        p1 = find(nums,p1,isForward)
+        p2= find(nums,p2,isForward)
+        if(p1!==-1){
+            p1=find(nums,p1,isForward)
+        }
+        if(p1===-1||p2===-1||p2===p1){
+            break
+        }
+    }
+        
+    if(p2!=-1 && p1===p2){
+        return true
+    }
+    }
+     return false
+};
+
+const find=(arr,p,isForward)=>{
+    const direction = arr[p]>=0
+    if(direction !== isForward){
+        return -1
+    }
+   let next= (p+arr[p])%arr.length
+    if(next<0){
+        next+=arr.length
+    }
+    if(-2!==-1 && next===p){
+        return -1
+    }
+    return next 
+}
